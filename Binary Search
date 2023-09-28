@@ -1,0 +1,68 @@
+import java.util.*;
+class Search{
+	public int binarysearch(int arr1[], int key){
+		
+		int low =0;
+		int high = arr1.length - 1;
+
+    //Algorithm for Binary search
+		while(low<=high){
+			int mid = (low+high)/2;
+			if (arr1[mid]==key){
+				return mid;
+			}
+			else if(arr1[mid]<key){
+				low = mid + 1;
+			}
+			else{
+				high = mid -1;
+			}
+		}//end of loop
+			return -1;
+
+}//end of method 
+}//end of class search
+
+
+//class containing main method
+public class BinarySearch{
+	public static void main(String args[]){
+
+ //creating Scanner class object
+	Scanner sc = new Scanner(System.in);
+
+  //creating Search class object
+	Search obj = new Search();
+
+  //accepting array size
+	System.out.print("Enter size: ");
+	int size = sc.nextInt();
+
+  //creating array to store values
+	int arr[] = new int[size];
+
+  //reading elements into array
+	System.out.println("Enter elements: ");
+	for(int i=0; i<size; i++){
+		arr[i] = sc.nextInt();
+	}//end of loop
+	
+	//accepting key element to search
+	System.out.print("Enter key element : ");
+	int key = sc.nextInt();
+
+  //calling binarysearch method 
+	int j = obj.binarysearch(arr,key);
+
+
+  //Displaying the result
+	if (j == -1){
+		System.out.println("Key element is not found");
+	}
+	else{
+		System.out.println("Key element is found at index"+" "+j);
+        }
+
+	}//end of main method
+
+}//end of class BinarySearch
