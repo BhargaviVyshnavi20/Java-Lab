@@ -1,0 +1,100 @@
+import java.util.*;
+
+class Book{
+    //instance variables
+    String name, number, author, publisher;
+
+    //constructor
+    Book(String name,String number,String author,String publisher){
+        this.name=name;
+        this.number=number;
+        this.author=author;
+        this.publisher=publisher;
+    }
+
+    //get method for Book_num()
+   public String getBook_num(){
+        return number;
+    }
+   
+    //set method for Book_num()
+    public void setBook_num(String bnum){
+        number=bnum;
+    }
+
+     //get method for Book_name()
+    public String getBook_name(){
+        return name;
+    }
+
+    //set method for Book_name()
+    public void setBook_name(String bname){
+        name=bname;
+    }
+
+     //get method for Author()
+    public String getAuthor(){
+        return author;
+    }
+
+    //set method for Author()
+    public void setAuthor(String A){
+        author=A;
+    }
+     //get method for Publisher()
+    public String getPublisher(){
+        return publisher;
+    }
+
+    //set method for Publisher()
+    public void setPublisher(String P){
+        publisher=P;
+    }
+
+     //get method for BookIfo()
+    public String getBookInfo(){
+        
+       return "Book name: "+name+"\nBook ISBN number: "+number+"\nBook Author name: "+author+"\nBook Publisher: "+publisher;         
+    }
+    
+}//end of class Book
+
+
+
+//class containing main method
+class Book_Info{
+    public static void main(String args[]){
+
+        //creating Scanner class object
+        Scanner sc=new Scanner(System.in);
+
+        //accepting no.of books from user
+        System.out.print("Number of Books(N): ");
+        int size=sc.nextInt();
+        sc.nextLine();
+
+        //crearting an array of Book class
+        Book[] book=new Book[size];
+
+        //loop for accepting book info
+        for(int i=0;i<size;i++){
+                System.out.println("Details for Book "+(i+1));
+                System.out.print("Enter Book name: ");
+                String bname=sc.nextLine();
+                System.out.print("Enter Book ISBN number: ");
+                String bnum=sc.nextLine();
+                System.out.print("Enter Book Author name: ");
+                String A=sc.nextLine();
+                System.out.print("Enter Book Publisher: ");
+                String P=sc.nextLine();
+                book[i]=new Book(bname,bnum,A,P);
+        }
+
+          //Displaying books info
+           for(int i=0;i<size;i++){
+                System.out.println("Info of Book "+(i+1));
+                System.out.println(book[i].getBookInfo());
+           }
+          
+    }//end of main method
+}//end of class Book_Info
